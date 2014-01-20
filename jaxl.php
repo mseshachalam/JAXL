@@ -337,9 +337,14 @@ class JAXL extends XMPPStream {
 			array('to'=>$to, 'type'=>'unsubscribed')
 		));
 	}
-	
+	/*
 	public function get_socket_path() {
 		return ($this->cfg['port'] == 5223 ? "ssl" : "tcp")."://".$this->cfg['host'].":".$this->cfg['port'];
+	}
+	*/
+	
+	public function get_socket_path() {
+    		return ($this->cfg['port'] == 5223 || $this->cfg['ssl'] == true ? "ssl" : "tcp")."://".$this->cfg['host'].":".$this->cfg['port'];
 	}
 	
 	public function retry() {
